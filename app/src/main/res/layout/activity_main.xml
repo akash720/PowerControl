@@ -4,95 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.azura.powercontrol.MainActivity">
+    tools:context="com.example.azura.powercontrol.MainActivity"
+    android:background="@drawable/gradient6">
+
     <RelativeLayout
+        android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#63ff70"
-        android:id="@+id/appliances">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/appliances"
-
-            android:textSize="30sp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="20dp"/>
+        android:background="#004C70">
 
         <ImageButton
+            android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:backgroundTint="#63ff70"
-            android:id="@+id/ib"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:backgroundTint="#004C70"
             android:paddingTop="30dp"
             app:srcCompat="@drawable/info2" />
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appliances"
-        android:layout_margin="20dp"
-        android:id="@+id/linearLayout">
-
-        <pl.droidsonroids.gif.GifTextView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/fan_gif"
-            android:id="@+id/fan"
-            />
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="3"
-            android:layout_marginLeft="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fan"
-                android:textColor="#7b917d"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/living_room"
-                android:textColor="#7b917d"
-                android:textSize="15sp"/>
-        </LinearLayout>
-
         <TextView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#7b917d"/>
-        <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"/>
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#dee7f4"
+            android:text="@string/appliances"
+            android:textSize="30sp"
+            android:id="@+id/textView2" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#004C70"
+            android:paddingTop="30dp"
+            app:srcCompat="@drawable/logout1"
+            android:onClick="logout"/>
 
+    </RelativeLayout>
 
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginBottom="28dp"-->
-        <!--android:layout_marginStart="45dp"-->
-        <!--android:src="@drawable/sos4"-->
-        <!--app:backgroundTint="@color/fab"-->
-        <!--app:borderWidth="6dp"-->
-        <!--app:elevation="0dp" />-->
-
-
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_below="@id/relative_layout"
+        />
 
 
 </RelativeLayout>

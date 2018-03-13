@@ -3,8 +3,8 @@
 
     <string name="gps_dialog_title">GPS...</string>
     <string name="gps_enable_message"><![CDATA[GPS is not enable, Please enable it in next window.<br>]]></string>
-    <string name="username">Username/Email</string>
-    <string name="password">•••••••••</string>
+    <string name="username">Username</string>
+    <string name="password">•••••••</string>
     <string name="toggle_login_signin">New Here? Sign up</string>
     <string name="login">Login</string>
     <string name="new_here_question"><![CDATA[New Here? Sign Up >]]></string>
@@ -15,9 +15,7 @@
     <string name="appliances">Appliances</string>
     <string name="fan">Fan</string>
     <string name="light">Light</string>
-    <string name="living_room">Living Room</string>
-    <string name="dining_room">Dining Room</string>
-    <string name="bedroom">Bedroom</string>
+    <string name="info">Usage: Click on the toggle button corresponding to the appliance to control them\n\n Only for authorized personnel.</string>
     <string-array name="choose">
         <item>Driver</item>
         <item>Student</item>
