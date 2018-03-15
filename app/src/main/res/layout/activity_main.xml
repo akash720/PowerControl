@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.azura.powercontrol.MainActivity"
-    android:background="@drawable/gradient6">
+    android:background="@drawable/gradient6"
+    tools:context="com.example.azura.powercontrol.MainActivity">
 
     <RelativeLayout
         android:id="@+id/relative_layout"
@@ -24,16 +24,16 @@
             app:srcCompat="@drawable/info2" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
-            android:textColor="#dee7f4"
             android:text="@string/appliances"
-            android:textSize="30sp"
-            android:id="@+id/textView2" />
+            android:textColor="#dee7f4"
+            android:textSize="30sp" />
 
         <ImageButton
             android:id="@+id/logout"
@@ -42,9 +42,9 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#004C70"
+            android:onClick="logout"
             android:paddingTop="30dp"
-            app:srcCompat="@drawable/logout1"
-            android:onClick="logout"/>
+            app:srcCompat="@drawable/logout1" />
 
     </RelativeLayout>
 
@@ -52,10 +52,36 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
-        android:dividerHeight="0dp"
         android:layout_below="@id/relative_layout"
-        />
+        android:divider="@null"
+        android:dividerHeight="0dp" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/emergency"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/emergencyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/emergency"
+            android:textColor="#dee7f4" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:background="#004C70"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:id="@+id/emergencyImage"
+            android:layout_toEndOf="@id/emergencyText"
+            android:contentDescription="@string/emergency"
+            android:onClick="emergency"
+            android:src="@drawable/sos2" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
