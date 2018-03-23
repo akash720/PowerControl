@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: Set your SIM module's number in phoneNo variable
 
-                    String phoneNo = "7014055788";
+                    String phoneNo = "";
                 String message = "#" + charSet[n] + "0";
 
                 try {
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                     if (mToggle.isChecked()) {
 
                         // TODO: Set your SIM module's number in phoneNo variable
-                        String phoneNo = "7014055788";
+                        String phoneNo = "";
                         String message = "#" + charSet[finalN] + "0";
 
                         try {
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
                         // TODO: Set your SIM module's number in phoneNo variable
 
-                        String phoneNo = "7014055788";
+                        String phoneNo = "";
                         String message = "#" + charSet[finalN] + "1";
 
                         try {
