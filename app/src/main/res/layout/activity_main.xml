@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:background="#004C70">
 
         <ImageButton
@@ -21,7 +21,8 @@
             android:layout_centerVertical="true"
             android:backgroundTint="#004C70"
             android:paddingTop="30dp"
-            app:srcCompat="@drawable/info2" />
+            app:srcCompat="@drawable/info2"
+            android:contentDescription="@string/information_app" />
 
         <TextView
             android:id="@+id/textView2"
@@ -36,15 +37,15 @@
             android:textSize="30sp" />
 
         <ImageButton
-            android:id="@+id/logout"
+            android:id="@+id/sign_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#004C70"
-            android:onClick="logout"
             android:paddingTop="30dp"
-            app:srcCompat="@drawable/logout1" />
+            app:srcCompat="@drawable/logout1"
+            android:contentDescription="@string/logout" />
 
     </RelativeLayout>
 

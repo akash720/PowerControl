@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "921196641254",
+    "firebase_url": "https://powercontrol-e9412.firebaseio.com",
+    "project_id": "powercontrol-e9412",
+    "storage_bucket": "powercontrol-e9412.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921196641254:android:2390f113bb1545d0",
+        "android_client_info": {
+          "package_name": "com.example.azura.powercontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921196641254-4e91lduqimhc1p587lo0jkfnrjkqk32o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsfF8G718wIZX1xb5gytrF13BPBJip7qA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
