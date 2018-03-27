@@ -20,9 +20,9 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#29559b"
+            android:contentDescription="@string/information_app"
             android:paddingTop="30dp"
-            app:srcCompat="@drawable/info2"
-            android:contentDescription="@string/information_app" />
+            app:srcCompat="@drawable/info2" />
 
         <TextView
             android:id="@+id/textView2"
@@ -37,15 +37,22 @@
             android:textSize="30sp" />
 
         <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/transparent"
+            android:onClick="setNumber" />
+
+        <ImageButton
             android:id="@+id/sign_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#29559b"
+            android:contentDescription="@string/logout"
             android:paddingTop="30dp"
-            app:srcCompat="@drawable/logout1"
-            android:contentDescription="@string/logout" />
+            app:srcCompat="@drawable/logout1" />
 
     </RelativeLayout>
 
@@ -73,12 +80,12 @@
             android:textColor="#dee7f4" />
 
         <ImageButton
+            android:id="@+id/emergencyImage"
             android:layout_width="60dp"
-            android:background="#29559b"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:id="@+id/emergencyImage"
             android:layout_toEndOf="@id/emergencyText"
+            android:background="#29559b"
             android:contentDescription="@string/emergency"
             android:onClick="emergency"
             android:src="@drawable/sos2" />

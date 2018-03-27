@@ -1,15 +1,15 @@
 package com.example.azura.powercontrol;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -28,9 +28,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean smsState2;
     private ImageButton signOut;
     private ImageButton emergencyButton;
-    private ProgressBar progressBar;
+    private AnimationDrawable animation;
+
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    private String myNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        myNumber = null;
+
         charSet = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'};
 
         smsState1 = Boolean.TRUE;
@@ -72,20 +76,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-        if (progressBar != null) {
-            progressBar.setVisibility(View.GONE);
-        }
-
         // Get the list of components
         ArrayList<Component> components = new ArrayList<>();
 
         components.add(new Component(0, "Hall", Boolean.TRUE));
         components.add(new Component(1, "Room 1", Boolean.FALSE));
-        components.add(new Component(0, "Hall", Boolean.TRUE));
-        components.add(new Component(1, "Hall", Boolean.FALSE));
-        components.add(new Component(0, "Room 2", Boolean.TRUE));
+        components.add(new Component(0, "Hall", Boolean.FALSE));
+        components.add(new Component(1, "Hall", Boolean.TRUE));
+//        components.add(new Component(0, "Room 2", Boolean.TRUE));
 
         // Create a new adapter that takes the list of components as input
         final CustomAdapter adapter = new CustomAdapter(this, components);
@@ -97,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "You have been successfully signed out", Toast.LENGTH_LONG).show();
                 signOut();
             }
         });
@@ -127,16 +126,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-//    public void logout(View view) {
-//        Intent intent = new Intent(this, LoginActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//        startActivity(intent);
-//        Toast.makeText(getApplicationContext(), "You have been successfully signed out", Toast.LENGTH_LONG).show();
-//    }
+    public void setNumber(View view){
+        myNumber = "7014055788";
+        Toast.makeText(getApplicationContext(), "You found it!", Toast.LENGTH_SHORT).show();
+    }
 
     public void emergency(View view) {
         if (emergencyButton.isClickable() == Boolean.TRUE) {
@@ -154,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: Set your SIM module's number in phoneNo variable
 
-                    String phoneNo = "";
+                    String phoneNo = myNumber;
                 String message = "#" + charSet[n] + "0";
 
                 try {
@@ -187,63 +180,5 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
         smsState2 = Boolean.FALSE;
-    }
-
-    public void sendSms(View view) {
-
-        emergencyButton.setClickable(Boolean.TRUE);
-        int n;
-        for (n = 0; n <= componentListView.getAdapter().getCount() - 1; n++) {
-            int firstPosition = componentListView.getFirstVisiblePosition() - componentListView.getHeaderViewsCount(); // This is the same as child #0
-            int wantedChild = n - firstPosition;
-            // Say, first visible position is 8, you want position 10(n), wantedChild will now be 2
-            // So that means your view is child #2 in the ViewGroup
-
-            // Could also check if wantedPosition is between listView.getFirstVisiblePosition() and listView.getLastVisiblePosition() instead.
-            View wantedView = componentListView.getChildAt(wantedChild);
-            final ToggleButton mToggle = wantedView.findViewById(R.id.toggle);
-            final int finalN = n;
-            mToggle.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (mToggle.isChecked()) {
-
-                        // TODO: Set your SIM module's number in phoneNo variable
-                        String phoneNo = "";
-                        String message = "#" + charSet[finalN] + "0";
-
-                        try {
-                            SmsManager smsManager = SmsManager.getDefault();
-                            smsManager.sendTextMessage(phoneNo, null, message, null, null);
-                            Toast.makeText(getApplicationContext(), "SMS sent.",
-                                    Toast.LENGTH_LONG).show();
-                        } catch (Exception e) {
-                            Toast.makeText(getApplicationContext(),
-                                    "SMS failed, please check permissions and try again.",
-                                    Toast.LENGTH_LONG).show();
-                            e.printStackTrace();
-                        }
-                    } else {
-
-                        // TODO: Set your SIM module's number in phoneNo variable
-
-                        String phoneNo = "";
-                        String message = "#" + charSet[finalN] + "1";
-
-                        try {
-                            SmsManager smsManager = SmsManager.getDefault();
-                            smsManager.sendTextMessage(phoneNo, null, message, null, null);
-                            Toast.makeText(getApplicationContext(), "SMS sent.",
-                                    Toast.LENGTH_LONG).show();
-                        } catch (Exception e) {
-                            Toast.makeText(getApplicationContext(),
-                                    "SMS failed, please check permissions and try again.",
-                                    Toast.LENGTH_LONG).show();
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-        }
     }
 }
